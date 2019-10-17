@@ -1,5 +1,4 @@
 /*
-
   In order to do these exercises you'll need your newly acquired knowledge on
   constructor functions, methods, prototypes and the `this` keyword.
   Here's an example of an exercise:
@@ -33,9 +32,6 @@
   console.log(jumbo.isFlying)          // true
   jumbo.land();
   console.log(jumbo.isFlying)          // false
-*/
-
-/*
 
   TASK 1
 
@@ -45,7 +41,38 @@
   - When eating an edible, it should be pushed into a "stomach" property which is an array.
   - Give persons the ability to poop.
   - When pooping, the stomach should empty.
+*/
+function Person (aname,anage){
+  this.name = aname;
+  this.age = anage;
+  this.stomach = []
+  
+}
 
+Person.prototype.greeter = function (){
+  
+  return `Hey I am  ${this.name} and I am ${this.age} years old`
+}
+
+var phil = new Person("Phil","30",);
+var young = new Person ("young","40")
+
+console.log(phil.greeter());
+console.log(young.greeter())
+
+
+Person.prototype.eater = function(){
+  return this.stomach
+}
+
+
+/*
+Person.prototype.eatStuff = function (eatEdibles,[]) {
+  return this.stomach.push(`I am eating ${this.eatEdibles}`)
+}
+
+
+/* 
   TASK 2
 
   - Build a Car constructor that takes model name and make.
@@ -116,6 +143,7 @@
 // Test you work by un-commenting these 3 objects and the list of console logs below:
 
 /*
+
   const mage = new Humanoid({
     createdAt: new Date(),
     dimensions: {
